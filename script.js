@@ -23,18 +23,18 @@ const errorHandler = (error) => {
 
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
+  errorMessage.classList.add("hidden");
   location = locationInput.value;
   if (location === "") {
     errorHandler("Please do not leave input field empty");
     location = settings.location;
   }
-  displayData();
+  displayData(units);
 });
 
-function displayData() {
-  errorMessage.classList.add("hidden");
+function displayData(units) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${location},ge&appid=${settings.appid}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${settings.appid}`
   )
     .then(function (response) {
       return response.json();
