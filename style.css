@@ -157,6 +157,12 @@ img {
   animation: prixClipFix 2s linear infinite;
 }
 
+@media (max-width: 550px){
+  .locationform__elements{
+    flex-direction: column;
+  }
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
